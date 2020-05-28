@@ -1,3 +1,4 @@
+rm -rf build
 mkdir build
 
 cp index.html readme.md -t build
