@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy to clipboard</title>
+</head>
+
+<body>
+    <button id="btn-copy" data-clipboard-text="ice cream"> copy </button>
+
+    <!-- polyfill -->
+    <!-- <script src="https://polyfill.io/v3/polyfill.min.js?features=Array.prototype.find,Promise,Object.assign"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+
+    <script>
+        /**
+         * 1. https://github.com/zenorocha/clipboard.js
+         * 2. https://atomiks.github.io/tippyjs/
+        */
+        document.addEventListener('DOMContentLoaded', function () {
+            const btnCopy = document.querySelector('#btn-copy');
+            // btnCopy.setAttribute('data-clipboard-text', 'link: ' + location.href);
+
+            new ClipboardJS(btnCopy);
+            tippy(btnCopy, {
+                content: '已複製',
+                trigger: 'click',
+            });
+        })
+    </script>
+</body>
+
+</html>
